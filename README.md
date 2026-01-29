@@ -20,17 +20,18 @@
 | ---------------------- | ---------- | ------------------------------ |
 | name                   | string     | null: false                    |
 | introduce              | string     | null: false                    |
-| category_id            | string     | null: false                    |
-| condition_id           | string     | null: false                    |
-| shipping_fee_status_id | string     | null: false                    |
-| prefecture_id          | string     | null: false                    |
+| category_id            | integer    | null: false                    |
+| condition_id           | integer    | null: false                    |
+| shipping_fee_status_id | integer    | null: false                    |
+| prefecture_id          | integer    | null: false                    |
 | user                   | references | null: false, foreign_key: true |
-| shipping_duration_id   | string     | null: false                    |
+| shipping_duration_id   | integer    | null: false                    |
 | price                  | integer    | null: false                    |
 | comment                | references | null: true, foreign_key: true  |
 
 ### Associations
 - belongs_to : user
+- has_one    : order
 - has_many   : comment
 - belongs_to_active_hash : category
 - belongs_to_active_hash : condition
@@ -75,5 +76,4 @@
 
 ### Associations
 - belongs_to : order
-- belongs_to : item
 
