@@ -1,0 +1,38 @@
+Users
+ ・メアド
+ ・パスワード
+ ・ニックネーム
+ ・名前全角名字
+ ・名前全角名前
+ ・名前カナ名字
+ ・名前カナ名前
+ ・birth_date（生年月日 date型）
+
+Items
+ ・名前
+ ・説明
+ ・カテゴリー
+ ・状態
+ ・発送料負担
+ ・user_id （出品者）
+ ・prefecture_id（発送元）
+ ・発送までの日数
+ ・販売価格
+ ・コメント
+
+Orders
+ ・user_id （購入者）
+ ・item_id （買ったもの）
+
+Addresses
+ ・郵便番号
+ ・市区町村
+ ・番地
+ ・建物名
+ ・電話番号
+ ・order_id （履歴）
+
+Comments
+ ・user_id
+ ・item_id
+ ・text
