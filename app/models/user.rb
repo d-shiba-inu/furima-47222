@@ -14,8 +14,8 @@ class User < ApplicationRecord
   end
   # 全角カナ
   with_options presence: true, format: { with: /\A[ァ-ヶー]+\z/, message: 'は全角カタカナで入力してください' } do
-    validates :last_name_kana
-    validates :first_name_kana
+    validates :lastname_kana
+    validates :firstname_kana
   end
   # パスワード英数字混合
   PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i
