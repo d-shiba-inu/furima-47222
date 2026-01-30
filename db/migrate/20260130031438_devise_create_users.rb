@@ -14,6 +14,14 @@ class DeviseCreateUsers < ActiveRecord::Migration[7.1]
       ## Rememberable
       t.datetime :remember_created_at
 
+      ## add
+      t.string :nickname,               null: false
+      t.date   :birth_date,             null: false
+      t.string :firstname_full_letters, null: false
+      t.string :lastname_full_letters,  null: false
+      t.string :firstname_kana,         null: false
+      t.string :lastname_kana,          null: false
+
       ## Trackable
       # t.integer  :sign_in_count, default: 0, null: false
       # t.datetime :current_sign_in_at
