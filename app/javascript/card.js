@@ -1,6 +1,8 @@
 const pay = () => {
   const form = document.getElementById('charge-form');
   if (!form) return;
+  if (typeof gon === 'undefined') return;
+
   // PAY.JPテスト公開鍵
   const publicKey = gon.public_key
   const payjp = Payjp(publicKey)
@@ -22,7 +24,7 @@ const pay = () => {
     // トークンを生成
     payjp.createToken(numberElement).then(function (response) {
       if (response.error) {
-        // エラーなら何もしない（またはエラー表示）
+        // エラーなら何もしない
       } else {
         const token = response.id;
         const renderDom = document.getElementById("charge-form");
@@ -39,3 +41,4 @@ const pay = () => {
 };
 
 window.addEventListener("turbo:load", pay);
+window.addEventListener("turbo:render", pay);
