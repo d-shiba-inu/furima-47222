@@ -1,6 +1,7 @@
 class OrdersController < ApplicationController
   before_action :authenticate_user!
   before_action :set_item, only: [:index, :create]
+  before_action :prevent_access, only: [:index, :create]
 
   def index
     gon.public_key = ENV['PAYJP_PUBLIC_KEY']
@@ -25,6 +26,12 @@ class OrdersController < ApplicationController
   end
 
   private
+
+  def prevent_access
+    return unless current_user.id == @item.user_id || @item.order.present?
+
+    redirect_to root_path
+  end
 
   def order_params
     params.require(:order_address).permit(:postal_code, :prefecture_id, :city, :street_address, :building, :phone_number).merge(

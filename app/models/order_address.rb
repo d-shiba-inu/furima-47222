@@ -14,17 +14,21 @@ class OrderAddress
   end
 
   def save
-    # 注文情報の保存
-    order = Order.create(user_id: user_id, item_id: item_id)
-    # 住所の保存
-    Address.create(
-      postal_code: postal_code,
-      prefecture_id: prefecture_id,
-      city: city,
-      street_address: street_address,
-      building: building,
-      phone_number: phone_number,
-      order_id: order.id
-    )
+    ActiveRecord::Base.transaction do
+      # 注文情報の保存
+      order = Order.create(user_id: user_id, item_id: item_id)
+      # 住所の保存
+      Address.create(
+        postal_code: postal_code,
+        prefecture_id: prefecture_id,
+        city: city,
+        street_address: street_address,
+        building: building,
+        phone_number: phone_number,
+        order_id: order.id
+      )
+    end
+  rescue ActiveRecord::RecordInvalid
+    false
   end
 end
