@@ -1,8 +1,11 @@
 Rails.application.routes.draw do
+  get 'orders/index'
   devise_for :users
   get "up" => "rails/health#show", as: :rails_health_check
 
   root "items#index"
 
-  resources :items
+  resources :items do
+    resources :orders, only: [:index, :create]
+  end
 end
