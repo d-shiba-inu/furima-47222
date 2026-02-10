@@ -4,3 +4,4 @@
 //= link_tree ../../../vendor/javascript .js
 //= link application.css
 //= link item_price.js
+//= link card.js
