@@ -128,8 +128,9 @@
     </div>
     <ul class='item-lists'>
 
+      
+      <% @items.each do |item| %>
       <li class='list'>
-        <% @items.each do |item| %>
         <%= link_to item_path(item) do %>
         <div class='item-img-content'>
           <%= image_tag item.image, class: "item-img" %>
@@ -154,8 +155,9 @@
           </div>
         </div>
         <% end %>
-        <% end %>
-      </li>
+        </li>
+       <% end %>
+      
 
       <% if @items.empty? %>
       <li class='list'>
