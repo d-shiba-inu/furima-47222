@@ -22,3 +22,11 @@ production:
   <<: *default
   adapter: postgresql
   url: <%= ENV['DATABASE_URL'] %>
+
+production:
+  <<: *default
+  adapter: mysql2
+  database: furima-47222_production
+  username: root
+  password: <%= ENV['DATABASE_PASSWORD'] %>
+  socket: /var/lib/mysql/mysql.sock
