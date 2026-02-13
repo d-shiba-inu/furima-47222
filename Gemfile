@@ -85,3 +85,5 @@ gem 'pry-rails'
 gem 'gon'
 
 gem "nokogiri", force_ruby_platform: true
+
+gem 'cgi'

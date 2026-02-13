@@ -367,6 +367,7 @@ DEPENDENCIES
   active_hash
   bootsnap
   capybara
+  cgi
   debug
   devise
   factory_bot_rails
