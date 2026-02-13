@@ -84,3 +84,5 @@ gem 'payjp'
 gem 'pry-rails'
 
 gem 'gon'
+
+gem "nokogiri", force_ruby_platform: true
